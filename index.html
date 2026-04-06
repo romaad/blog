@@ -2,3 +2,14 @@
 layout: page
 title: Home
 ---
+<section class="list">
+	{% if site.posts.size == 0 %}
+		<p class="text-center">Nothing published yet!</p>
+	{% else %}
+		{% for post in site.posts %}
+			{% if post.hidden != true %}
+				{% include blog-post.html %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+</section>
