@@ -2,6 +2,14 @@
 title: "Home assistant setup 1/N"
 date: 2026-4-5
 body: Setting up home assistant with libvirt
+headerImage: false
+tag:
+- home-assistant
+- home
+- assistant
+- setup
+category: blog
+author: romaad
 ---
 
 To start my home automation journey, had multiple [options](https://www.home-assistant.io/getting-started/) for how it can be setup. 
