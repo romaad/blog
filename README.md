@@ -1,57 +1,67 @@
-<header>
+<p align="center">
+    <h2 align="center">Indigo Minimalist Jekyll Template - <a href="https://sergiokopplin.github.io/indigo/">Demo</a></h2>
+</p>
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+<p align="center">This is a simple and minimalist template for Jekyll for those who likes to eat noodles.</p>
 
-# GitHub Pages
+***
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+<p align="center">
+    <b><a href="README.md#what-has-inside">What has inside</a></b>
+    |
+    <b><a href="README.md#setup">Setup</a></b>
+    |
+    <b><a href="README.md#settings">Settings</a></b>
+    |
+    <b><a href="README.md#how-to">How to</a></b>
+</p>
 
-</header>
+<p align="center">
+    Light and Dark themes.
+</p>
 
-<!--
-  <<< Author notes: Finish >>>
-  Review what we learned, ask for feedback, provide next steps.
--->
+<p align="center">
+    <img src="https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png" />
+</p>
 
-## Finish
+## What has inside
 
-_Congratulations friend, you've completed this course!_
+- [Jekyll](https://jekyllrb.com/), [Sass](https://sass-lang.com/) ~[RSCSS](https://rscss.io/)~ and [SVG](https://www.w3.org/Graphics/SVG/);
+- Page Speed: [99~Desktop](https://pagespeed.web.dev/analysis/https-sergiokopplin-github-io-indigo/41axptm3as?utm_source=psi&utm_medium=redirect&form_factor=desktop);
 
-<img src=https://octodex.github.com/images/constructocat2.jpg alt=celebrate width=300 align=right>
+## Setup
 
-Your blog is now live and has been deployed!
+0. :star: to the project. :metal:
+1. Fork the project [Indigo](https://github.com/sergiokopplin/indigo/fork)
+2. Edit `_config.yml` with your data
+3. Write some posts :bowtie:
 
-Here's a recap of all the tasks you've accomplished in your repository:
+To run locally do the following:
 
-- You enabled GitHub Pages.
-- You selected a theme using the config file.
-- You learned about proper directory format and file naming conventions in Jekyll.
-- You created your first blog post with Jekyll!
+1. Install [Jekyll](https://jekyllrb.com) and [Bundler](https://bundler.io/).
+2. Clone the forked repo on your machine
+3. Enter the cloned folder via terminal and run:
+```sh
+bundle install
+bundle exec jekyll serve
+```
+4. Open it in your browser: [http://localhost:4000](http://localhost:4000)
 
-### What's next?
+Or run with [docker](https://github.com/BretFisher/jekyll-serve).
 
-- Keep working on your GitHub Pages site... we love seeing what you come up with!
-- We'd love to hear what you thought of this course [in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages).
-- [Take another GitHub Skills course](https://github.com/skills).
-- [Read the GitHub Getting Started docs](https://docs.github.com/en/get-started).
-- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
+## Settings
 
-<footer>
+You can customize your site on `_config.yml` file.
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+## How To?
+
+Check the [FAQ](./FAQ.md).
+
+---
+## License
+
+[MIT](https://kopplin.mit-license.org/) License © Sérgio Kopplin
 
 ---
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
-</footer>
+[![Star History Chart](https://api.star-history.com/svg?repos=sergiokopplin/indigo&type=Date)](https://star-history.com/#sergiokopplin/indigo&Date)
