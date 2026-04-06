@@ -26,4 +26,41 @@ $ sync
 
 ## kvm installation
 * Plenty of resources on the web, for debian I used the [official guide](https://wiki.debian.org/KVM)
-* 
+* The important step that is not mentioned in any HA guides it to install a network bridge, it is explained in the debian KVM guide. But to summarise:
+### Network bridge
+* Check the temporary part of the [wiki](https://wiki.debian.org/BridgeNetworkConnections). You can also test with it but it will go away with restart.
+* After those steps are done (the ones before the permenant config changes) check your bridge status with `sudo ip addr show | grep br`
+* Make the config permenant:
+  * Add the following to your `/etc/network/interfaces`
+  ```conf
+  auto virtbr0
+  iface virtbr0 inet dhcp
+      bridge_ports enp1s0
+      address 192.168.1.10
+      broadcast 192.168.1.255
+      netmask 255.255.255.0
+      gateway 192.168.1.1
+  ```
+  Where enp1s0 in this case is the Lan port, virtbr0 is your bridge name. I set a static address here `192.168.1.10`
+  for the bridge so I can easilly get my virtual images addresses. You can remove that part to allow for dhcp allocation.
+* After that we download the .qcow2 image from the HA [guide](https://www.home-assistant.io/installation/linux).
+* For me I wanted to make my HA store some logs and media so I needed to extend a bit the original allocated disk for the image:
+```sh
+// Source - https://stackoverflow.com/a/38081468
+// Posted by user2051965
+// Retrieved 2026-04-06, License - CC BY-SA 3.0
+
+cp small_image.qcow2 large_image.qcow2
+qemu-img resize large_image.qcow2 +40G
+# check large image boots
+rm small small_image.qcow2
+```
+* To add the image to kvm images, I use the provided command from the mentioned guide (notice I add the bridge to it):
+```
+virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 \
+ --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi \
+--import --graphics none --boot uefi --network bridge=<bridge_name>
+```
+* It will run for a while, use `virsh list` to make sure it is running.
+* Follow with the onboarding https://www.home-assistant.io/getting-started/onboarding/ in the setup we put a virtual bridge at `192.168.1.10`,
+you can access the frontend at http://192.168.1.10:8123
