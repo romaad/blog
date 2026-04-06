@@ -45,7 +45,7 @@ $ sync
   for the bridge so I can easilly get my virtual images addresses. You can remove that part to allow for dhcp allocation.
 * After that we download the .qcow2 image from the HA [guide](https://www.home-assistant.io/installation/linux).
 * For me I wanted to make my HA store some logs and media so I needed to extend a bit the original allocated disk for the image:
-```sh
+```bash
 // Source - https://stackoverflow.com/a/38081468
 // Posted by user2051965
 // Retrieved 2026-04-06, License - CC BY-SA 3.0
@@ -56,7 +56,7 @@ qemu-img resize large_image.qcow2 +40G
 rm small small_image.qcow2
 ```
 * To add the image to kvm images, I use the provided command from the mentioned guide (notice I add the bridge to it):
-```
+```bash
 virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 \
  --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi \
 --import --graphics none --boot uefi --network bridge=<bridge_name>
