@@ -43,7 +43,8 @@ $ sync
   ```
   Where enp1s0 in this case is the Lan port, virtbr0 is your bridge name. I set a static address here `192.168.1.10`
   for the bridge so I can easilly get my virtual images addresses. You can remove that part to allow for dhcp allocation.
-* After that we download the .qcow2 image from the HA [guide](https://www.home-assistant.io/installation/linux).
+## Home asisstant OS installation
+* Download the .qcow2 image from the HA [guide](https://www.home-assistant.io/installation/linux).
 * For me I wanted to make my HA store some logs and media so I needed to extend a bit the original allocated disk for the image:
 ```bash
 // Source - https://stackoverflow.com/a/38081468
@@ -64,3 +65,12 @@ virt-install --name haos --description "Home Assistant OS" --os-variant=generic 
 * It will run for a while, use `virsh list` to make sure it is running.
 * Follow with the onboarding https://www.home-assistant.io/getting-started/onboarding/ in the setup we put a virtual bridge at `192.168.1.10`,
 you can access the frontend at http://192.168.1.10:8123
+
+## Post-setup stuff:
+* First add your user account, install the mobile app and make sure you can login
+* Use `virsh autostart haos` to make sure your VM will start on boot (very important when you are not in the house)
+* Update your bios settings to auto-start after power outages.
+* Open the settings, devices and services and add HACS. We'll use this to install a lot of the 3rd party tools that are not in the official store.
+* Restart your system make sure that it automatically starts up and you can play with it without issues.
+
+This it! you have a working home assistant instance! in the next steps we are going to setup stuff like DNS, camera surveillance, heating controls and many more!
